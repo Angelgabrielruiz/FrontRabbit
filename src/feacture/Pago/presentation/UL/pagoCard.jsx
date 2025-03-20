@@ -37,9 +37,7 @@ export default function PagoCard() {
     };
   }, []);
 
-  // Función para parsear el string contenido
-  // Transforma: "Pago creado: Monto 500, Pago 300, Cambio 200, Fecha 12/23/212"
-  // En: { monto: "500", pago: "300", cambio: "200", fecha: "12/23/212" }
+  
   const parseContenido = (contenido) => {
     const cleaned = contenido.replace("Pago creado:", "").trim();
     const parts = cleaned.split(",");
@@ -51,7 +49,7 @@ export default function PagoCard() {
     return result;
   };
 
-  // Renderiza el mensaje del WebSocket con un diseño mejorado
+ //render
   const renderSocketMessage = () => {
     try {
       const data = JSON.parse(socketMessage);
@@ -154,13 +152,13 @@ export default function PagoCard() {
                   className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold px-3 py-2 rounded-lg transition"
                   onClick={() => handleEdit(pago)}
                 >
-                  ✏️
+                  editar
                 </button>
                 <button
                   className="bg-red-500 hover:bg-red-600 text-white font-bold px-3 py-2 rounded-lg transition"
                   onClick={() => handleDelete(pago.id)}
                 >
-                  🗑️
+                  eliminar
                 </button>
               </div>
             </li>
